@@ -1,0 +1,19 @@
+---
+ - name: Konekcija
+   hosts: localhost
+   tasks:
+   
+     - name: Kreiranje foldera
+       file:
+         path: /root/{{folder}}
+         state: directory
+         
+     - name: Kreiranje fajla
+       file:
+         path: "/root/{{folder}}/{{file}}"
+         state: touch
+         
+     - name: Popunjavanje fajla podatcima
+       lineinfile:
+         dest: "/root/{{folder}}/{{file}}"
+         line: "Dobrodosli prijatelji drugovi"
